@@ -36,6 +36,7 @@
 		8E7FD73F289193CD0022A14F /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7FD73E289193CD0022A14F /* ProductDetailViewController.swift */; };
 		8E7FD7442896F78B0022A14F /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7FD7432896F78B0022A14F /* Int.swift */; };
 		A75D0C0028915A6700344E96 /* CatalogViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75D0BFF28915A6700344E96 /* CatalogViewCell.swift */; };
+		A79EAD2928A7EFE90085E480 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79EAD2828A7EFE90085E480 /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +71,7 @@
 		8E7FD73E289193CD0022A14F /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
 		8E7FD7432896F78B0022A14F /* Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
 		A75D0BFF28915A6700344E96 /* CatalogViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogViewCell.swift; sourceTree = "<group>"; };
+		A79EAD2828A7EFE90085E480 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				8E7FD73B28915A870022A14F /* DataStore.swift */,
+				A79EAD2828A7EFE90085E480 /* NetworkManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -296,6 +299,7 @@
 				8E7FD734289157A30022A14F /* Product.swift in Sources */,
 				484D7EF52898291500F6C7AA /* LoginViewController.swift in Sources */,
 				484D7EF32898290D00F6C7AA /* OrderListViewController.swift in Sources */,
+				A79EAD2928A7EFE90085E480 /* NetworkManager.swift in Sources */,
 				8E7FD737289158F00022A14F /* Purchase.swift in Sources */,
 				484D7EEC28980F5800F6C7AA /* TabBarController.swift in Sources */,
 				8E7FD73F289193CD0022A14F /* ProductDetailViewController.swift in Sources */,

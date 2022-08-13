@@ -23,6 +23,7 @@ class CatalogTableViewController: UIViewController {
     
     var delegate: TabBarControllerDelegate!
     var purchases: [Purchase] = []
+    var gettingProductsSuccess: Bool = false
     
     // MARK: - Private properties
     
@@ -33,7 +34,7 @@ class CatalogTableViewController: UIViewController {
         }
     }
     
-    private let products: [Product]! = DataStore.shared.products
+    private var products: [Product]! = []
     
     // MARK: - Override methods
     
@@ -42,12 +43,21 @@ class CatalogTableViewController: UIViewController {
         
         cartInButton.layer.cornerRadius = 15
         
+//        for product in products {
+//            print(product.name)
+//        }
+        fetchProducts()
+        updateUI()
+        
         for product in products {
             purchases.append(Purchase(product: product, count: 0))
         }
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
+        fetchProducts()
+        
         purchases = purchases.map { Purchase(product: $0.product, count: 0) }
         
         let cart = DataStore.shared.cart
@@ -59,6 +69,8 @@ class CatalogTableViewController: UIViewController {
         getTotalCartSum()
         
         updateUI()
+        
+        fetchProducts()
     }
     
     // MARK: - IBActions
@@ -116,7 +128,7 @@ extension CatalogTableViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        purchases.count
+        products.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -173,4 +185,26 @@ extension CatalogTableViewController: CatalogViewCellDelegate {
         getTotalCartSum()
     }
     
+}
+
+// MARK: - Networking
+extension CatalogTableViewController {
+    
+    private func fetchProducts() {
+        NetworkManager.shared.fetch([Product].self, from: Link.productsURL.rawValue) { [weak self] result in
+            switch result {
+            case .success(let products):
+                for product in products {
+                    print(product.name)
+                }
+                DispatchQueue.main.async {
+                    self?.products = products
+                    self?.gettingProductsSuccess = true
+                }
+            case .failure(let error):
+                print(error)
+
+            }
+        }
+    }
 }
